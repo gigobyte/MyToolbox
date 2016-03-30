@@ -5,6 +5,7 @@ body {
 }
 
 .navbar-darkblue {
+	background-image: none;
 	background-color: #14181c;
 }
 
