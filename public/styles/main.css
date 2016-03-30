@@ -1,0 +1,15 @@
+body {
+	background-color: #1b2127;
+	font-family: 'Droid Sans', sans-serif;
+	color: #999999;
+}
+
+.navbar-darkblue {
+	background-color: #14181c;
+}
+
+.input-dark {
+	background-color: #1c2a38;
+	border-color: #283139 !important;
+	color: #999999;
+}
