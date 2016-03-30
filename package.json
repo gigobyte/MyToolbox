@@ -1,0 +1,32 @@
+{
+  "name": "mytoolbox",
+  "version": "1.0.0",
+  "description": "Site for sharing, discussing and keeping track of programming tools",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigobyte/MyToolbox.git"
+  },
+  "keywords": [
+    "mean",
+    "tools",
+    "frameworks",
+    "programming",
+    "website"
+  ],
+  "author": "Stanislav Iliev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gigobyte/MyToolbox/issues"
+  },
+  "homepage": "https://github.com/gigobyte/MyToolbox#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongojs": "^2.3.0",
+    "mongoose": "^4.4.10"
+  }
+}
