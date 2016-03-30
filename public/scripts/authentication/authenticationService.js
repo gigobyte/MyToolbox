@@ -8,11 +8,7 @@ angular.module('mytoolboxApp').service('AuthenticationService', function (Restan
 		REGISTER: 'register'
 	};
 
-	service.getLoggedUser = function() {
-		return {
-			username: 'gigobyte',
-			email: 's.iliev3@gmail.com',
-			githubLink: 'https://github.com/gigobyte'
-		};
+	service.login = function(credentials) {
+		return Restangular.oneUrl(ENDPOINTS.LOGIN).customPOST(credentials);
 	}
 });
