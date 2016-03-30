@@ -5,7 +5,8 @@ angular.module("mytoolboxApp").config(function($stateProvider) {
 		url: '/',
 		views: {
 			'': {
-				templateUrl: 'scripts/home/home.html'
+				templateUrl: 'scripts/home/home.html',
+				controller: 'HomeCtrl as homeCtrl'
 			},
 			'header@home': {
 				templateUrl: 'scripts/home/header.html'
