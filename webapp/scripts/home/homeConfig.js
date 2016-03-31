@@ -43,5 +43,14 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 				controller: 'LoginCtrl as loginCtrl'
 			}
 		}
+	})
+	.state('home.authenticate.register', {
+		url: '/register',
+		views: {
+			'content@home': {
+				templateUrl: 'scripts/authentication/register.html',
+				controller: 'RegisterCtrl as registerCtrl'
+			}
+		}
 	});
 });

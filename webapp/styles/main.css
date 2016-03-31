@@ -1,0 +1,60 @@
+body {
+	background-color: #1b2127;
+	font-family: 'Muli', sans-serif;
+	color: #dbd9d9;
+}
+
+::selection {
+    background-color: #ba514d;
+    color: #14181c;
+}
+
+::-moz-selection {
+    background-color: #ba514d;
+    color: #14181c;
+}
+
+.navbar-darkblue {
+	background-image: none;
+	background-color: #14181c;
+}
+
+.input-dark {
+	background-color: #1c2a38;
+	border-color: #283139 !important;
+	border-radius: 0;
+	color: #dbd9d9;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.btn-custom {
+	background-image: none;
+	background-color: #1c2a38;
+	color: #dbd9d9;
+	border-radius: 0;
+	border: 1px solid #1c2a38;
+	transition: 0.3s ease all;
+}
+
+.btn-custom:hover {
+	box-shadow: inset 165px 0 0 0 #ba514d;
+	color: #dbd9d9;
+}
+
+.navbar-brand {
+	padding: 0px 40px 0px 0px !important;
+}
+
+.v-align {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pink-link, .pink-link:hover{
+	color: #ba514d;
+}

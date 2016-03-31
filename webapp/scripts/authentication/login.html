@@ -1,0 +1,29 @@
+<section id="login">
+	<div class="container">
+		<form role="form" autocomplete="off">
+			<div class="row text-center">
+				<div class="col-xs-4 col-centered">
+					<div class="form-wrap">
+						<h1 class="text-center">LOGIN</h1>
+						<div class="form-group">
+							<label for="key" class="sr-only">Username</label>
+							<input type="username" name="key" id="key" data-ng-model="loginCtrl.user.username" class="form-control input-dark" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label for="key" class="sr-only">Password</label>
+							<input type="password" name="key" id="key" data-ng-model="loginCtrl.user.password" class="form-control input-dark" placeholder="Password">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-xs-offset-4 v-align">
+					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="loginCtrl.login()" value="Login">
+				</div>
+				<div class="col-xs-2 v-align">
+					<a class="pink-link" data-ui-sref="home.first">Forgot password?</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

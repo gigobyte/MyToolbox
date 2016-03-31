@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#" style="color: #BA514D;">MyToolbox</a>
+			<a class="navbar-brand" href="#"><img src="images/logo.png"></img></a>
 			
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
@@ -17,7 +17,7 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li>
+				<li data-ng-show="headerCtrl.user">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">
@@ -32,12 +32,12 @@
 						<li><a href="#">Log out</a></li>
 					</ul>
 				</li>
-				<li>
-					<a data-ui-sref="home.authenticate.login">Log In</a>
+				<li data-ng-show="!headerCtrl.user">
+					<a data-ui-sref="home.authenticate.login">Login</a>
 				</li>
 				<li>
-				<li>
-					<a href="">Sign Up</a>
+				<li data-ng-show="!headerCtrl.user">
+					<a data-ui-sref="home.authenticate.register">Sign Up</a>
 				</li>				
 				<li><a href="">Tools</a></li>
 				<li><a href="">Lists</a></li>
