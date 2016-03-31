@@ -14,15 +14,6 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 			}
 		}
 	})
-	.state('home.login', {
-		url: 'login',
-		views: {
-			'body@home': {
-				templateUrl: 'scripts/authentication/login.html',
-				controller: 'LoginCtrl as loginCtrl'
-			}
-		}
-	})
 	.state('home.first', {
 		url: '/',
 		views: {
