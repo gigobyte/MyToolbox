@@ -3,9 +3,6 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 
 	$stateProvider
 	.state('home', {
-		url: '/',
-	$stateProvider
-	.state('home', {
 		url: '',
 		abstract: true,
 		views: {
