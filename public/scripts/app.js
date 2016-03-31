@@ -1,8 +1,24 @@
-angular.module('mytoolboxApp', ['ui.router', 'restangular', 'LocalStorageModule']).config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
-	$urlRouterProvider.otherwise('/');
+angular.module('mytoolboxApp', ['ui.router', 'restangular', 'seAuthentication', 'seEvents', 'pascalprecht.translate']).config(function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
+	function configureRouting() {
+		$urlRouterProvider.when('', '/');
+		$urlRouterProvider.otherwise(function() {
+			// $injector.get("$log").error("viblastCustomerPortalApp: unknown location: ", $location);
+			return '/404';
+		});
 
-	RestangularProvider.setBaseUrl("/api");
-	RestangularProvider.setRestangularFields({
-		id: "_id"
-	});
+		$locationProvider.hashPrefix('!');
+
+		RestangularProvider.setBaseUrl('/api');
+		RestangularProvider.setRestangularFields({
+			id: '_id'
+		});
+	}
+
+	function configureSessionCookies() {
+		$httpProvider.defaults.xsrfCookieName = "csrftoken";
+		$httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
+	}
+
+	configureRouting();
+	configureSessionCookies();
 });

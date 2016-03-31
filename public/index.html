@@ -10,6 +10,7 @@
 	</head>
 
 	<body>
+		<div data-ui-view="header"></div>
 		<div data-ui-view></div>
 
 		<script src="bower_components/angular/angular.js"></script>
@@ -18,11 +19,41 @@
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 		<script src="bower_components/restangular/src/restangular.js"></script>
 		<script src="bower_components/lodash/lodash.js"></script>
-		<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsModule.js"></script>
+		<script src="bower_components/angular-translate/angular-translate.js"></script>
+		<script src="bower_components/angular-se-events/src/seEventsModule.js"></script>
+		<script src="bower_components/angular-se-events/src/seEventHelperService.js"></script>
+		<script src="bower_components/angular-se-events/src/seBootstrapDialogDirective.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsService.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsDirective.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsLoggerService.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsTranslations.bg.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsTranslations.en.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsTranslations.js"></script>
+		<script src="bower_components/angular-se-notifications/src/seNotificationsVersion.js"></script>
+		<script src="bower_components/angular-se-notifications/gen/seNotificationsHtml.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxModule.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxHelperService.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seLoadingDirective.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxRequestsSnifferService.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxPreventDoubleClickService.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxPreventCachingService.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxDisplayRequestErrorsService.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxTranslations.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxTranslations.en.js"></script>
+		<script src="bower_components/angular-se-ajax/src/seAjaxTranslations.bg.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationModule.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationService.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationPopupDirective.js"></script>
+		<script src="bower_components/angular-se-authentication/src/loggedMemberFilter.js"></script>
+		<script src="bower_components/angular-se-authentication/src/isCurrentlyLoggedFilter.js"></script>
+		<script src="bower_components/angular-se-authentication/src/isAdministratorFilter.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationTranslations.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationTranslations.en.js"></script>
+		<script src="bower_components/angular-se-authentication/src/seAuthenticationTranslations.bg.js"></script>
 
 		<script src="scripts/app.js"></script>
 		<script src="scripts/home/homeConfig.js"></script>
-		<script src="scripts/authentication/authenticationService.js"></script>
 		<script src="scripts/home/homeCtrl.js"></script>
 		<script src="scripts/authentication/loginCtrl.js"></script>
 	</body>

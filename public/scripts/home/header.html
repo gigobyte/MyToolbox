@@ -17,11 +17,11 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li data-ng-show="homeCtrl.isLoggedIn">
+				<li>
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{homeCtrl.currentUser.username}} <span class="caret"></span>
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> username <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
@@ -34,8 +34,10 @@
 				</li>
 				<li data-ng-show="!homeCtrl.isLoggedIn">
 					<a data-ui-sref="home.login">Log In</a>
+				<li>
+					<a data-ui-sref="home.authenticate.login">Log In</a>
 				</li>
-				<li data-ng-show="!homeCtrl.isLoggedIn">
+				<li>
 					<a href="">Sign Up</a>
 				</li>				
 				<li><a href="">Tools</a></li>
