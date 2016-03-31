@@ -14,3 +14,14 @@ body {
 	border-color: #283139 !important;
 	color: #999999;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.btn-pink {
+	background-image: none;
+	background-color: #BA514D;
+	color: white;
+}

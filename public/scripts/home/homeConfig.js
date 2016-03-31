@@ -1,7 +1,8 @@
 angular.module("mytoolboxApp").config(function($stateProvider) {
 	'use strict';
 
-	$stateProvider.state('home', {
+	$stateProvider
+	.state('home', {
 		url: '/',
 		views: {
 			'': {
@@ -10,6 +11,15 @@ angular.module("mytoolboxApp").config(function($stateProvider) {
 			},
 			'header@home': {
 				templateUrl: 'scripts/home/header.html'
+			}
+		}
+	})
+	.state('home.login', {
+		url: 'login',
+		views: {
+			'body@home': {
+				templateUrl: 'scripts/authentication/login.html',
+				controller: 'LoginCtrl as loginCtrl'
 			}
 		}
 	});

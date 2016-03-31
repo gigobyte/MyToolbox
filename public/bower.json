@@ -1,0 +1,34 @@
+{
+  "name": "mytoolbox",
+  "homepage": "https://github.com/gigobyte/MyToolbox",
+  "authors": [
+    "Stanislav Iliev"
+  ],
+  "description": "Site for sharing, discussing and keeping track of programming tools",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "mean",
+    "tools",
+    "frameworks",
+    "programming",
+    "website"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "restangular": "^1.5.2",
+    "angular-local-storage": "^0.2.7",
+    "bootstrap": "^3.3.6"
+  }
+}
