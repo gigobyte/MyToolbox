@@ -10,7 +10,8 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 				templateUrl: 'scripts/home/frame.html'
 			},
 			'header@home': {
-				templateUrl: 'scripts/home/header.html'
+				templateUrl: 'scripts/home/header.html',
+				controller: 'HeaderCtrl as headerCtrl'
 			}
 		}
 	})
@@ -18,8 +19,8 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 		url: '/',
 		views: {
 			'content@home': {
-				templateUrl: null,
-				controller: null
+				templateUrl: 'scripts/home/home.html',
+				controller: 'HomeCtrl as homeCtrl'
 			}
 		}
 	})

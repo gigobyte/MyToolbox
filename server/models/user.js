@@ -10,8 +10,7 @@ var UserSchema = new mongoose.Schema({
 	email: {type: String, required: true},
 	password: {type: String, required: true},
 	githubLink: {type: String},
-	linkedInLink: {type: String},
-	avatar: {type: String}
+	linkedInLink: {type: String}
 });
 
 UserSchema.pre('save', function(next) {

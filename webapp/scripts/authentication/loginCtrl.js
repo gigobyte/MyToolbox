@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('LoginCtrl', function ($state) {
+angular.module('mytoolboxApp').controller('LoginCtrl', function ($state, AccountUsersService) {
 	'use strict';
 
 	var controller = this;
@@ -13,7 +13,9 @@ angular.module('mytoolboxApp').controller('LoginCtrl', function ($state) {
 
 	function attachMethods() {
 		controller.login = function() {
-			
+			AccountUsersService.login(controller.user).then(function() {
+				$state.go('home.first', null, {reload: true});
+			});			
 		}
 	}
 
