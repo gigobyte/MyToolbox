@@ -49,12 +49,6 @@ body {
 	padding: 0px 40px 0px 0px !important;
 }
 
-md-toast.md-custom-toast-theme {
-	.md-toast-content {
-		color: green;
-	}
-}
-
 .v-align {
     float: none;
     display: inline-block;
@@ -67,4 +61,19 @@ md-toast.md-custom-toast-theme {
 
 .md-toast-content {
 	background-color: #ba514d !important;
+}
+
+.image-thumbnail {
+	width: 110%;
+	height: auto;
+	padding-bottom: 5px;
+	transition: 0.4s ease all;
+}
+
+.image-thumbnail:hover {
+    -webkit-filter:brightness(80%);
+    -moz-filter:brightness(80%);
+    filter: url(#brightness); /* required for FF */
+    filter:brightness(80%);
+	background-color: #ba514d;
 }

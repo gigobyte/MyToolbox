@@ -10,5 +10,13 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 				controller: 'ToolsCtrl as toolsCtrl'
 			}
 		}
-	});	
+	})
+	.state('home.tool', {
+		url: '/tool/:name',
+		views: {
+			'content@home': {
+				
+			}
+		}
+	});
 });
