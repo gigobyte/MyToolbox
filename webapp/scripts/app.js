@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp', ['ui.router', 'restangular', 'seAuthentication', 'seEvents', 'pascalprecht.translate']).config(function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
+angular.module('mytoolboxApp', ['ui.router', 'restangular', 'seAuthentication', 'seEvents', 'pascalprecht.translate', 'ngAnimate', 'anim-in-out']).config(function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
 	function configureRouting() {
 		$urlRouterProvider.when('', '/');
 		$urlRouterProvider.otherwise(function() {
