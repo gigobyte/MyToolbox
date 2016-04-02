@@ -15,7 +15,9 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, $ele
 		controller.register = function() {
 			AccountUsersService.register(controller.user).then(
 				function(res) {
-					$state.go('home.first', null, {reload: true});
+					NotificationService.show($element, 'notification.registerSuccess', function() {
+						$state.go('home.first', null, {reload: true});
+					});
 				},
 
 				function() {

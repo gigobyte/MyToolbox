@@ -14,9 +14,7 @@ angular.module('mytoolboxApp').controller('LoginCtrl', function ($state, Account
 	function attachMethods() {
 		controller.login = function() {
 			AccountUsersService.login(controller.user).then(function() {
-				NotificationService.show($element, 'notification.loginSuccess', function() {
-						$state.go('home.first', null, {reload: true});
-				});
+				$state.go('home.first', null, {reload: true});
 			});
 		}
 	}
