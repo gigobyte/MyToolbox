@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><img src="images/logo.png"></img></a>
+			<a class="navbar-brand" data-ui-sref="home.first"><img src="images/logo.png"></img></a>
 			
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
@@ -37,7 +37,7 @@
 				<li data-ng-show="!headerCtrl.user">
 					<a data-ui-sref="home.authenticate.register" translate="nav.register"></a>
 				</li>				
-				<li><a href="" translate="nav.tools"></a></li>
+				<li><a data-ui-sref="home.tools" translate="nav.tools"></a></li>
 				<li><a href="" translate="nav.lists"></a></li>
 				<li><a href="" translate="nav.users"></a></li>
 			</ul>

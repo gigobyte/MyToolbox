@@ -7,16 +7,21 @@ var bcrypt = require('bcrypt-nodejs');
 var ENV = require('./environment');
 
 var app = express();
-var db = mongoose.connect('mongodb://localhost/mytoolboxdb')
+
 
 var User = require('./models/user');
+var Tool = require('./models/tool');
+var addTools = require('./addTools');
 
+var sess;
+
+addTools.run();
+
+var db = mongoose.connect('mongodb://localhost/mytoolboxdb');
 app.use(express.static(path.join(__dirname, '../webapp')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({secret: ENV.COOKIE_SECRET}));
-
-var sess;
 
 app.post('/api/authenticate/login', function(req, res) {
 	sess = req.session;
@@ -79,6 +84,12 @@ app.get('/api/authenticate/currentuser', function(req, res) {
 	} else {
 		res.send(sess.user);
 	}
+});
+
+app.get('/api/tools', function(req, res) {
+	Tool.find({}, function(err, tools) {
+		res.send(tools);
+	});
 });
 
 app.listen(3000);
