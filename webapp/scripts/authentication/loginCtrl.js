@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('LoginCtrl', function ($state, SeAuthenticationService) {
+angular.module('mytoolboxApp').controller('LoginCtrl', function ($state) {
 	'use strict';
 
 	var controller = this;
@@ -9,9 +9,6 @@ angular.module('mytoolboxApp').controller('LoginCtrl', function ($state, SeAuthe
 
 	function initState() {
 		controller.user = {};
-
-		//return to home is user is logged
-		SeAuthenticationService.getLoggedMember().then(navigateToHome);
 	}
 
 	function attachMethods() {

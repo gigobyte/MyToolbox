@@ -12,12 +12,20 @@ app.use(express.static(path.join(__dirname, '../webapp')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/api/authenticate', function(req, res) {
-	res.send('Test');
+app.post('/api/authenticate/login', function(req, res) {
+	console.log(req.body);
 });
 
 app.post('/api/authenticate/register', function(req, res) {
-	console.log(req.body);
+	var user = new User({
+		username: req.body.username,
+		password: req.body.password,
+		email: req.body.email
+	});
+
+	user.save(function(err) {
+		if (err) res.status(500).send();
+	});
 });
 
 app.listen(3000);
