@@ -4,24 +4,22 @@
 			<div class="row text-center">
 				<div class="col-xs-4 col-centered">
 					<div class="form-wrap">
-						<h1 class="text-center">LOGIN</h1>
+						<h1 class="text-center" translate="header.login"></h1>
 						<div class="form-group">
-							<label for="key" class="sr-only">Username</label>
-							<input type="username" name="key" id="key" data-ng-model="loginCtrl.user.username" class="form-control input-dark" placeholder="Username"></input>
+							<input type="username" name="key" id="key" data-ng-model="loginCtrl.user.username" class="form-control input-dark" placeholder="{{'placeholder.username' | translate}}"></input>
 						</div>
 						<div class="form-group">
-							<label for="key" class="sr-only">Password</label>
-							<input type="password" name="key" id="key" data-ng-model="loginCtrl.user.password" class="form-control input-dark" placeholder="Password"></input>
+							<input type="password" name="key" id="key" data-ng-model="loginCtrl.user.password" class="form-control input-dark" placeholder="{{'placeholder.password' | translate}}"></input>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-2 col-xs-offset-4 v-align">
-					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="loginCtrl.login()" value="Login"></input>
+					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="loginCtrl.login()" value="{{'header.login' | translate}}"></input>
 				</div>
 				<div class="col-xs-2 v-align">
-					<a class="pink-link" data-ui-sref="home.first">Forgot password?</a>
+					<a class="pink-link" data-ui-sref="home.first" translate="button.forgotPassword"></a>
 				</div>
 			</div>
 		</form>

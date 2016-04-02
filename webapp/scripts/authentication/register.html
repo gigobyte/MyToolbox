@@ -4,29 +4,25 @@
 			<div class="row text-center">
 				<div class="col-xs-4 col-centered">
 					<div class="form-wrap">
-						<h1 class="text-center">REGISTER</h1>
+						<h1 class="text-center" translate="header.register"></h1>
 						<div class="form-group">
-							<label for="email" class="sr-only">Email</label>
-							<input type="email" name="email" id="email" data-ng-model="registerCtrl.user.email" class="form-control input-dark" placeholder="Email">
+							<input type="email" name="email" id="email" data-ng-model="registerCtrl.user.email" class="form-control input-dark" placeholder="{{'placeholder.email' | translate}}">
 						</div>
 						<div class="form-group">
-							<label for="key" class="sr-only">Username</label>
-							<input type="username" name="key" id="key" data-ng-model="registerCtrl.user.username" class="form-control input-dark" placeholder="Username">
+							<input type="username" name="key" id="key" data-ng-model="registerCtrl.user.username" class="form-control input-dark" placeholder="{{'placeholder.username' | translate}}">
 						</div>
 						<div class="form-group">
-							<label for="key" class="sr-only">Password</label>
-							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.password" class="form-control input-dark" placeholder="Password">
+							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.password" class="form-control input-dark" placeholder="{{'placeholder.password' | translate}}">
 						</div>
 						<div class="form-group">
-							<label for="key" class="sr-only">Repeat password</label>
-							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.$$passwordRepeat" class="form-control input-dark" placeholder="Repeat password">
+							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.$$passwordRepeat" class="form-control input-dark" placeholder="{{'placeholder.passwordRepeat' | translate}}">
 						</div>						
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-2 col-xs-offset-4 col-centered">
-					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="registerCtrl.register()" value="Register">
+					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="registerCtrl.register()" value="{{'header.register' | translate}}">
 				</div>
 			</div>
 		</form>

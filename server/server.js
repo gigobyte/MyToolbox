@@ -54,7 +54,11 @@ app.post('/api/authenticate/register', function(req, res) {
 	});
 
 	user.save(function(err) {
-		if (err) res.status(500).send();
+		if (err) {
+			res.status(409).send();
+		} else {
+			res.status(204).send();
+		}
 	});
 });
 

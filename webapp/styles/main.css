@@ -49,6 +49,12 @@ body {
 	padding: 0px 40px 0px 0px !important;
 }
 
+md-toast.md-custom-toast-theme {
+	.md-toast-content {
+		color: green;
+	}
+}
+
 .v-align {
     float: none;
     display: inline-block;
@@ -57,4 +63,8 @@ body {
 
 .pink-link, .pink-link:hover{
 	color: #ba514d;
+}
+
+.md-toast-content {
+	background-color: #ba514d !important;
 }

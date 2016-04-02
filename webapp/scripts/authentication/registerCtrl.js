@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, AccountUsersService) {
+angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, $element, AccountUsersService, NotificationService) {
 	'use strict';
 
 	var controller = this;
@@ -13,9 +13,15 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, Acco
 
 	function attachMethods() {
 		controller.register = function() {
-			AccountUsersService.register(controller.user).then(function() {
-				$state.go('home.first', null, {reload: true});
-			});
+			AccountUsersService.register(controller.user).then(
+				function(res) {
+					$state.go('home.first', null, {reload: true});
+				},
+
+				function() {
+					NotificationService.show($element, 'notification.userExists');
+				}
+			);
 		}
 	}
 

@@ -24,23 +24,22 @@
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{headerCtrl.user.username}} <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">My Tools</a></li>
-						<li><a href="#">My Lists</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Settings</a></li>
-						<li><a data-ng-click="headerCtrl.logout()">Log out</a></li>
+						<li><a href="#" translate="nav.profile.profile"></a></li>
+						<li><a href="#" translate="nav.profile.myTools"></a></li>
+						<li><a href="#" translate="nav.profile.myLists"></a></li>
+						<li><a href="#" translate="nav.profile.settings"></a></li>
+						<li><a data-ng-click="headerCtrl.logout()" translate="nav.profile.logout"></a></li>
 					</ul>
 				</li>
 				<li data-ng-show="!headerCtrl.user">
-					<a data-ui-sref="home.authenticate.login">Login</a>
+					<a data-ui-sref="home.authenticate.login" translate="nav.login"></a>
 				</li>
 				<li data-ng-show="!headerCtrl.user">
-					<a data-ui-sref="home.authenticate.register">Sign Up</a>
+					<a data-ui-sref="home.authenticate.register" translate="nav.register"></a>
 				</li>				
-				<li><a href="">Tools</a></li>
-				<li><a href="">Lists</a></li>
-				<li><a href="">Users</a></li>
+				<li><a href="" translate="nav.tools"></a></li>
+				<li><a href="" translate="nav.lists"></a></li>
+				<li><a href="" translate="nav.users"></a></li>
 			</ul>
 		</div>
 	</div>
