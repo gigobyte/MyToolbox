@@ -1,13 +1,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 var app = express();
 var db = mongoose.connect('mongodb://localhost/mytoolboxdb')
 
 var User = require('./models/user');
 
-app.use(express.static(__dirname + '../webapp'));
+app.use(express.static(path.join(__dirname, '../webapp')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
