@@ -92,5 +92,16 @@ app.get('/api/tools', function(req, res) {
 	});
 });
 
+app.get('/api/tool', function(req, res) {
+	Tool.findOne({indexName: req.query.tool}, function(err, doc) {
+		console.log(doc);
+		if (doc) {
+			res.send(doc);
+		} else {
+			res.status(404).send();
+		}
+	});
+});
+
 app.listen(3000);
 console.log('Server up and running on port 3000');

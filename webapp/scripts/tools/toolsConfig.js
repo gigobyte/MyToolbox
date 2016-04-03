@@ -15,7 +15,8 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 		url: '/tool/:name',
 		views: {
 			'content@home': {
-				
+				templateUrl: 'scripts/tools/tool.html',
+				controller: 'ToolCtrl as toolCtrl'
 			}
 		}
 	});

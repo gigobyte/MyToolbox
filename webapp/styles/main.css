@@ -4,6 +4,8 @@ body {
 	color: #dbd9d9;
 }
 
+
+/* When selecting text */
 ::selection {
     background-color: #ba514d;
     color: #14181c;
@@ -14,11 +16,13 @@ body {
     color: #14181c;
 }
 
+/* Navigation bar */
 .navbar-darkblue {
 	background-image: none;
 	background-color: #14181c;
 }
 
+/* Input box in the navigation */
 .input-dark {
 	background-color: #1c2a38;
 	border-color: #283139 !important;
@@ -26,11 +30,13 @@ body {
 	color: #dbd9d9;
 }
 
+/* Class for centering a BS column */
 .col-centered{
     float: none;
     margin: 0 auto;
 }
 
+/* Style for all buttons */
 .btn-custom {
 	background-image: none;
 	background-color: #1c2a38;
@@ -42,27 +48,36 @@ body {
 
 .btn-custom:hover {
 	box-shadow: inset 165px 0 0 0 #ba514d;
+	color: #14181c;
+}
+
+.btn-custom:focus {
 	color: #dbd9d9;
 }
 
+/* Pushes the site logo to the left */
 .navbar-brand {
 	padding: 0px 40px 0px 0px !important;
 }
 
+/* Vertically centers a smaller div relative to the bigger one next to it */
 .v-align {
     float: none;
     display: inline-block;
     vertical-align: middle;
 }
 
+/* Overwrite the default blue links */
 .pink-link, .pink-link:hover{
 	color: #ba514d;
 }
 
+/* Overwrite the default material modals*/
 .md-toast-content {
 	background-color: #ba514d !important;
 }
 
+/* Image style for the tool gallery */
 .image-thumbnail {
 	width: 110%;
 	height: auto;
@@ -76,4 +91,61 @@ body {
     filter: url(#brightness); /* required for FF */
     filter:brightness(80%);
 	background-color: #ba514d;
+}
+
+/* Overwrite the default BS modal style */
+.modal-header {
+	border-bottom: 0;
+}
+
+.modal-content {
+	border-radius: 0;
+	background-color: #1c2a38;
+	background-clip: border-box !important;
+}
+
+.close, .close:hover, .close:focus {
+	color: #ba514d;
+	opacity: 1;
+	text-shadow: 0 0px 0 #fff;
+}
+
+.custom-form-align{
+	padding-top: 6px !important;
+}
+
+.form-control {
+	background-color: #1c2a38;
+	border-color: #283139 !important;
+	border-radius: 0;
+	color: #dbd9d9;
+}
+
+.btn-default, .btn-default:hover, .btn-default:focus {
+	text-shadow: 0 0px 0 #fff;
+	background-image: none;
+	background-color: #1c2a38;
+	border-color: #283139 !important;
+	border-radius: 0;
+	border: 0px solid #fff;
+	box-shadow: inset 0 0px;
+	color: #dbd9d9;
+}
+
+.dropdown-menu {
+	background-color: #1c2a38;
+	border-radius: 0;
+	border: 0px solid #fff;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+	background-color: #1c2a38;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+	color: #848484;
+}
+
+.text-muted {
+	color: #dbd9d9;
 }

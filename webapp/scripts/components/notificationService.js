@@ -8,9 +8,7 @@ angular.module('mytoolboxApp').service('NotificationService', function($mdToast,
 	function attachMethods() {
 		service.show = function(element, msg, next) {
 			var msgText = $filter('translate')(msg);
-
-			console.log(msgText);
-
+			
 			$mdToast.show(
 				$mdToast.simple().textContent(msgText).position(POSITION).hideDelay(2000).parent(element)
 			).then(next);

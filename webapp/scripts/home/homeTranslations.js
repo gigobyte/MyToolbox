@@ -20,8 +20,8 @@ angular.module('mytoolboxApp').config(function($translateProvider) {
 		'nav.lists': 'Списъци',
 		'nav.users': 'Потребители',
 		'nav.profile.profile': 'Профил',
-		'nav.profile.myTools': 'Мой инструменти',
-		'nav.profile.myLists': 'Мой списъци',
+		'nav.profile.myTools': 'Мои инструменти',
+		'nav.profile.myLists': 'Мои списъци',
 		'nav.profile.settings': 'Настройки',
 		'nav.profile.logout': 'Излез'
 	});

@@ -16,7 +16,18 @@ angular.module('mytoolboxApp').config(function($translateProvider) {
 	});
 
 	$translateProvider.translations('bg', {
-		'nav.login': 'Влез'
+		'header.login': 'Влез',
+		'header.register': 'Регистрация',
+
+		'placeholder.username': 'Потребителско име',
+		'placeholder.password': 'Парола',
+		'placeholder.passwordRepeat': 'Повтори паролата',
+		'placeholder.email': 'Email',
+
+		'button.forgotPassword': 'Забравена парола?',
+
+		'notification.userExists': 'Потребителят вече съществува.',
+		'notification.registerSuccess': 'Регистрацията е успешна!'
 	});
 
 	$translateProvider.preferredLanguage('en');
