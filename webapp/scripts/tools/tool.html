@@ -15,7 +15,6 @@
 	<div class="row text-center" >
 		<div class="col-md-10 col-md-offset-1" style="background-color: #3c464f; padding-left: 0 !important">
 			<button class="btn btn-lg btn-custom" data-toggle="modal" data-target="#myModal">Add to list</button>
-			<rating ng-model="toolCtrl.addedTool.rating" max="5"></rating>
 		</div>
 	</div>
 
@@ -25,10 +24,11 @@
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2><p align="center">{{toolCtrl.tool.name}}</p></h2><br/>
-					<form class="form-horizontal">
-						<div class="form-group">
-							<label class="col-sm-2 control-label custom-form-align">Add to</label>
-							<div class="col-sm-10">
+					<div class="row">
+							<div class="col-sm-2 col-sm-offset-2">
+								<label class="control-label custom-form-align">Add to</label>
+							</div>
+							<div class="col-sm-6">
 								<ui-select data-ng-model="toolCtrl.addedTool.list" data-theme="bootstrap" bootstrap="width: 300px;">
 									<ui-select-match placeholder="Select a list...">{{$select.selected.name}}</ui-select-match>
 									<ui-select-choices repeat="list in toolCtrl.dummyList | filter: $select.search">
@@ -36,10 +36,36 @@
 									</ui-select-choices>
 								</ui-select>
 							</div>
-							<label class="col-sm-2 control-label custom-form-align">Rating</label>
-
 						</div>
-					</form>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-2 col-sm-offset-2 vert-align">
+							<label class="col-sm-2 control-label custom-form-align">Rating</label>
+						</div>
+						<div class="col-sm-6 vert-align">
+							<uib-rating class="uib-rating-padding" ng-model="toolCtrl.addedTool.rating" max="5" read-only="false" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-2 col-sm-offset-2">
+							<label class="col-sm-2 control-label custom-form-align">Review</label>
+						</div>
+						<div class="col-sm-6">
+							<uib-accordion>
+								<uib-accordion-group is-open="status.open">
+									<uib-accordion-heading>
+										I want to write one!
+									</uib-accordion-heading>
+									<input type="text" class="uib-accordion-text-input" data-ng-model="toolCtrl.addedTool.review" placeholder="Review goes here..."></input>
+									</uib-accordion-group>
+							</uib-accordion>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-xs-2 col-xs-offset-4 col-centered">
+							<button class="btn btn-custom" data-ng-click="toolCtrl.addTool()">Add</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

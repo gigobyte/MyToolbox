@@ -8,7 +8,9 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 			controller.tool = res;
 			controller.tool.image = '../../images/tools/' + res.image;
 
-			controller.addedTool = {};
+			controller.addedTool = {
+				tool: controller.tool._id
+			};
 
 			controller.dummyList = [
 				{name: 'Learned'},
@@ -18,8 +20,10 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 	}
 
 	function attachMethods() {
-		controller.addToList = function(ev) {
-
+		controller.addTool = function() {
+			ToolsService.addTool(controller.addedTool).then(function(res) {
+				console.log('done');
+			});
 		}
 	}
 

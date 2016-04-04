@@ -61,7 +61,7 @@ body {
 }
 
 /* Vertically centers a smaller div relative to the bigger one next to it */
-.v-align {
+.vert-align {
     float: none;
     display: inline-block;
     vertical-align: middle;
@@ -110,42 +110,56 @@ body {
 	text-shadow: 0 0px 0 #fff;
 }
 
+/* Align label to the target */
 .custom-form-align{
 	padding-top: 6px !important;
 }
 
-.form-control {
-	background-color: #1c2a38;
-	border-color: #283139 !important;
-	border-radius: 0;
-	color: #dbd9d9;
-}
-
-.btn-default, .btn-default:hover, .btn-default:focus {
-	text-shadow: 0 0px 0 #fff;
+/* Overwrite the default BS select style */
+.form-control, .form-control:hover, .form-control:focus {
 	background-image: none;
-	background-color: #1c2a38;
 	border-color: #283139 !important;
 	border-radius: 0;
-	border: 0px solid #fff;
-	box-shadow: inset 0 0px;
-	color: #dbd9d9;
 }
 
 .dropdown-menu {
-	background-color: #1c2a38;
 	border-radius: 0;
-	border: 0px solid #fff;
-}
-
-.ui-select-bootstrap .ui-select-choices-row.active > a {
-	background-color: #1c2a38;
-}
-
-.ui-select-bootstrap .ui-select-choices-row > a {
-	color: #848484;
 }
 
 .text-muted {
-	color: #dbd9d9;
+	color: inherit;
+}
+
+.uib-rating-padding {
+	margin-top: 10px;
+}
+
+input, input:focus {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.panel-group {
+	padding-left: 6px;
+}
+
+.panel, .panel-group {
+	border-radius: 0 !important;
+}
+
+.panel-default {
+	background-image: none !important;
+}
+
+.panel-heading {
+	padding: 8px 10px;
+}
+
+.panel-title {
+	font-size: 14px;
+}
+
+.uib-accordion-text-input {
+	color: #dbd9d9 !important;
 }
