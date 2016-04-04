@@ -33,7 +33,7 @@ app.post('/api/authenticate/login', function(req, res) {
 				if (err) {
 					return res.status(500).send();
 				} else if (match) {
-					sess.user = doc;
+					sess.user = doc._id;
 					res.status(200).send();
 				} else {
 					return res.status(401).send();
@@ -80,7 +80,13 @@ app.get('/api/authenticate/currentuser', function(req, res) {
 	if (!sess) {
 		return res.status(404).send();
 	} else {
-		res.send(sess.user);
+		User.findOne({_id: sess.user}, function(err, found) {
+			if(err) {
+				return res.status(500).send();
+			} else {
+				res.send(found);
+			}
+		});
 	}
 });
 
@@ -105,7 +111,7 @@ app.get('/api/tool', function(req, res) {
 });
 
 app.post('/api/tool/add', function(req, res) {
-	User.findOne({username: sess.user.username}, function(err, found) {
+	User.findOne({_id: sess.user}, function(err, found) {
 		found.lists.forEach(function(list) {
 			if(list.name === req.body.list.name) {
 				list.entries.push({
