@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('ProfileCtrl', function (AccountUsersService) {
+angular.module('mytoolboxApp').controller('ProfileCtrl', function (AccountUsersService, ToolsService) {
 	'use strict';
 
 	var controller = this;
@@ -6,7 +6,17 @@ angular.module('mytoolboxApp').controller('ProfileCtrl', function (AccountUsersS
 	function initState() {
 		AccountUsersService.getLoggedUser().then(function(res) {
 			controller.user = res;
-			console.log(res);
+
+			controller.user.knownTools = controller.user.lists[0];
+
+			_.map(controller.user.knownTools.entries, function(e) {
+				ToolsService.getTool(e.tool).then(function(res) {
+					e.tool = res;
+					e.tool.image = '../../images/tools/' + e.tool.image;
+
+					return e;
+				})
+			})
 		});
 	}
 

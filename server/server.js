@@ -14,7 +14,6 @@ var Tool = require('./models/tool');
 var addTools = require('./addTools');
 
 var sess;
-var DEFAULT_LISTS = ['Learned', 'Want to learn'];
 
 addTools.run();
 
@@ -101,7 +100,9 @@ app.get('/api/tools', function(req, res) {
 });
 
 app.get('/api/tool', function(req, res) {
-	Tool.findOne({indexName: req.query.tool}, function(err, doc) {
+	Tool.findOne({_id: req.query.tool}, function(err, doc) {
+		console.log(doc);
+		console.log(req.query);
 		if (doc) {
 			res.send(doc);
 		} else {
@@ -126,10 +127,8 @@ app.post('/api/tool/add', function(req, res) {
 
 		found.save(function(err) {
 			if (err) {
-				console.log(err);
 				return res.status(409).send();
 			} else {
-				console.log('Tool inserted fine!');
 				res.status(200).send();
 			}
 		});

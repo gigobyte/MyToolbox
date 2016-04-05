@@ -4,7 +4,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 	var controller = this;
 
 	function initState() {
-		ToolsService.getTool($state.params.name).then(function(res) {
+		ToolsService.getTool($state.params.id).then(function(res) {
 			controller.tool = res;
 			controller.tool.image = '../../images/tools/' + res.image;
 

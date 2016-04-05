@@ -12,7 +12,7 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 		}
 	})
 	.state('home.tool', {
-		url: '/tool/:name',
+		url: '/tool/:id',
 		views: {
 			'content@home': {
 				templateUrl: 'scripts/tools/tool.html',
