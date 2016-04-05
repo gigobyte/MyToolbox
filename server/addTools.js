@@ -19,7 +19,7 @@ module.exports = {
 			description: "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. ",
 			link: 'http://expressjs.com/',
 			language: 'JavaScript',
-			image: 'expressjs.jpg'
+			image: 'express.jpg'
 		});
 
 		Tool.create({
@@ -46,7 +46,7 @@ module.exports = {
 			description: 'ASP.NET 5 is a new open-source, cross-platform, high performance and lightweight framework for building Web Applications using .NET.',
 			link: 'http://www.asp.net/',
 			language: 'C#',
-			image: 'http://phoenixcoded.com/images/mvc_logo1.png'
+			image: 'aspnet.jpg'
 		});
 		
 		Tool.create({
@@ -55,7 +55,7 @@ module.exports = {
 			description: 'Rails is a web application development framework written in the Ruby language. It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks.',
 			link: 'http://rubyonrails.org/',
 			language: 'Ruby',
-			image: 'http://www.xtreemsolution.com/img/rubyrails.png'
+			image: 'rubyonrails.jpg'
 		});
 		
 		Tool.create({
@@ -64,7 +64,7 @@ module.exports = {
 			description: 'Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.',
 			link: 'https://www.djangoproject.com/',
 			language: 'Python',
-			image: 'https://www.djangoproject.com/s/img/logos/django-logo-negative.png'
+			image: 'django.jpg'
 		});
 		
 		Tool.create({
@@ -73,7 +73,7 @@ module.exports = {
 			description: 'Meteor is a full-stack JavaScript platform for developing modern web and mobile applications. Meteor includes a key set of technologies for building connected-client reactive applications, a build tool, and a curated set of packages from the Node.js and general JavaScript community.',
 			link: 'https://www.meteor.com/',
 			language: 'JavaScript',
-			image: 'http://blog.thesecretlab.nl/wp-content/uploads/2015/07/meteor-logo.png'
+			image: 'meteor.jpg'
 		});
 		
 		Tool.create({
@@ -82,7 +82,7 @@ module.exports = {
 			description: 'Laravel is a free, open-source PHP web framework, intended for the development of web applications following the model–view–controller (MVC) architectural pattern. Some of the features of Laravel are a modular packaging system with a dedicated dependency manager, different ways for accessing relational databases, utilities that aid in application deployment and maintenance, and its orientation toward syntactic sugar.',
 			link: 'https://laravel.com/',
 			language: 'PHP',
-			image: 'http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2015/02/1423519219laravel-l-slant.png'
+			image: 'laravel.jpg'
 		});
 		
 		Tool.create({
@@ -91,7 +91,7 @@ module.exports = {
 			description: 'The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the infrastructure so you can focus on your application.',
 			link: 'http://spring.io/',
 			language: 'Java',
-			image: 'https://spring.io/img/spring-by-pivotal.png'
+			image: 'spring.jpg'
 		});
 		
 		Tool.create({
@@ -100,7 +100,7 @@ module.exports = {
 			description: 'CodeIgniter is a powerful PHP framework with a very small footprint, built for developers who need a simple and elegant toolkit to create full-featured web applications.',
 			link: 'https://www.codeigniter.com/',
 			language: 'PHP',
-			image: 'http://excelisys.com/wp-content/uploads/2014/11/codeigniter-logo.png'
+			image: 'codeigniter.jpg'
 		});
 		
 		Tool.create({
@@ -109,7 +109,7 @@ module.exports = {
 			description: 'Symfony is a set of PHP Components, a Web Application framework, a Philosophy, and a Community — all working together in harmony.',
 			link: 'http://symfony.com/',
 			language: 'PHP',
-			image: 'http://symfony.com/logos/symfony_black_01.png?v=4'
+			image: 'symfony.jpg'
 		});
 		
 		Tool.create({
@@ -118,7 +118,7 @@ module.exports = {
 			description: 'A framework for creating ambitious web applications.',
 			link: 'http://emberjs.com/',
 			language: 'JavaScript',
-			image: 'https://upload.wikimedia.org/wikipedia/en/6/69/Ember.js_Logo_and_Mascot.png'
+			image: 'emberjs.jpg'
 		});
 		
 		Tool.create({
@@ -127,7 +127,7 @@ module.exports = {
 			description: 'Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.',
 			link: 'http://flask.pocoo.org/',
 			language: 'Python',
-			image: 'http://flask.pocoo.org/static/logo/flask.png'
+			image: 'flask.jpg'
 		});
 		
 		Tool.create({
@@ -136,7 +136,7 @@ module.exports = {
 			description: 'JavaServer™ Faces (JSF) is the standard component-oriented user interface (UI) framework for the Java EE platform. ',
 			link: 'http://emberjs.com/',
 			language: 'Java',
-			image: 'https://upload.wikimedia.org/wikipedia/he/thumb/e/ea/Jsf-logo.png/640px-Jsf-logo.png'
+			image: 'jsf.jpg'
 		});
 	}
 }

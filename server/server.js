@@ -101,8 +101,6 @@ app.get('/api/tools', function(req, res) {
 
 app.get('/api/tool', function(req, res) {
 	Tool.findOne({_id: req.query.tool}, function(err, doc) {
-		console.log(doc);
-		console.log(req.query);
 		if (doc) {
 			res.send(doc);
 		} else {
