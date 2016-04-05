@@ -93,5 +93,50 @@ module.exports = {
 			language: 'Java',
 			image: 'https://spring.io/img/spring-by-pivotal.png'
 		});
+		
+		Tool.create({
+			name: 'CodeIgniter',
+			indexName: 'codeigniter',
+			description: 'CodeIgniter is a powerful PHP framework with a very small footprint, built for developers who need a simple and elegant toolkit to create full-featured web applications.',
+			link: 'https://www.codeigniter.com/',
+			language: 'PHP',
+			image: 'http://excelisys.com/wp-content/uploads/2014/11/codeigniter-logo.png'
+		});
+		
+		Tool.create({
+			name: 'Symfony',
+			indexName: 'symfony',
+			description: 'Symfony is a set of PHP Components, a Web Application framework, a Philosophy, and a Community — all working together in harmony.',
+			link: 'http://symfony.com/',
+			language: 'PHP',
+			image: 'http://symfony.com/logos/symfony_black_01.png?v=4'
+		});
+		
+		Tool.create({
+			name: 'Ember.js',
+			indexName: 'emberjs',
+			description: 'A framework for creating ambitious web applications.',
+			link: 'http://emberjs.com/',
+			language: 'JavaScript',
+			image: 'https://upload.wikimedia.org/wikipedia/en/6/69/Ember.js_Logo_and_Mascot.png'
+		});
+		
+		Tool.create({
+			name: 'Flask',
+			indexName: 'flask',
+			description: 'Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.',
+			link: 'http://flask.pocoo.org/',
+			language: 'Python',
+			image: 'http://flask.pocoo.org/static/logo/flask.png'
+		});
+		
+		Tool.create({
+			name: 'JSF',
+			indexName: 'jsf',
+			description: 'JavaServer™ Faces (JSF) is the standard component-oriented user interface (UI) framework for the Java EE platform. ',
+			link: 'http://emberjs.com/',
+			language: 'Java',
+			image: 'https://upload.wikimedia.org/wikipedia/he/thumb/e/ea/Jsf-logo.png/640px-Jsf-logo.png'
+		});
 	}
 }
