@@ -27,7 +27,7 @@ module.exports = {
 			indexName: 'mongodb',
 			description: "MongoDB is an open source, document-oriented database designed with both scalability and developer agility in mind. Instead of storing your data in tables and rows as you would with a relational database, in MongoDB you store JSON-like documents with dynamic schemas.",
 			link: 'https://www.mongodb.org/',
-			language: 'Other',
+			language: 'Other/Database',
 			image: 'mongodb.jpg'
 		});
 
