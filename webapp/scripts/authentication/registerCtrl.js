@@ -1,11 +1,7 @@
-angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, $element, AccountUsersService, NotificationService) {
+angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, AccountUsersService, NotificationService) {
 	'use strict';
 
 	var controller = this;
-
-	function navigateToHome() {
-		$state.go('home.first', null, {reload: true});
-	}
 
 	function initState() {
 		controller.user = {};
@@ -13,17 +9,20 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, $ele
 
 	function attachMethods() {
 		controller.register = function() {
-			AccountUsersService.register(controller.user).then(
-				function(res) {
-					NotificationService.show($element, 'notification.registerSuccess', function() {
-						$state.go('home.first', null, {reload: true});
-					});
-				},
+			if(controller.user.password !== controller.user.$$passwordRepeat) {
+				NotificationService.show('Passwords do not match');
+			} else {
+				AccountUsersService.register(controller.user).then(
+					function(res) {
+						NotificationService.show(res);
+						$state.go('home.login', null, {reload: true});
+					},
 
-				function() {
-					NotificationService.show($element, 'notification.userExists');
-				}
-			);
+					function(res) {
+						NotificationService.show(res.data);
+					}
+				);
+			}
 		}
 	}
 

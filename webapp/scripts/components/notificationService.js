@@ -6,11 +6,9 @@ angular.module('mytoolboxApp').service('NotificationService', function($mdToast,
 	var POSITION = 'top right';
 
 	function attachMethods() {
-		service.show = function(element, msg, next) {
-			var msgText = $filter('translate')(msg);
-			
+		service.show = function(msg, next) {
 			$mdToast.show(
-				$mdToast.simple().textContent(msgText).position(POSITION).hideDelay(2000).parent(element)
+				$mdToast.simple().textContent(msg).position(POSITION).hideDelay(2000)
 			).then(next);
 		}
 	}

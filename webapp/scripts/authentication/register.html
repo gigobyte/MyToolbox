@@ -1,30 +1,26 @@
-<section id="login">
-	<div class="container">
-		<form role="form" autocomplete="off">
-			<div class="row text-center">
-				<div class="col-xs-4 col-centered">
-					<div class="form-wrap">
-						<h1 class="text-center" translate="header.register"></h1>
-						<div class="form-group">
-							<input type="email" name="email" id="email" data-ng-model="registerCtrl.user.email" class="form-control input-dark" placeholder="{{'placeholder.email' | translate}}">
-						</div>
-						<div class="form-group">
-							<input type="username" name="key" id="key" data-ng-model="registerCtrl.user.username" class="form-control input-dark" placeholder="{{'placeholder.username' | translate}}">
-						</div>
-						<div class="form-group">
-							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.password" class="form-control input-dark" placeholder="{{'placeholder.password' | translate}}">
-						</div>
-						<div class="form-group">
-							<input type="password" name="key" id="key" data-ng-model="registerCtrl.user.$$passwordRepeat" class="form-control input-dark" placeholder="{{'placeholder.passwordRepeat' | translate}}">
-						</div>						
-					</div>
+<div class="container">
+	<form name="registrationForm">
+		<div class="row text-center">
+			<div class="col-xs-4 col-centered">
+				<h1 class="text-center" data-translate="header.register"></h1>
+				<div class="form-group">
+					<input type="email" required data-ng-model="registerCtrl.user.email" class="form-control input-dark" placeholder="{{'placeholder.email' | translate}}">
+				</div>
+				<div class="form-group">
+					<input type="username" required data-ng-model="registerCtrl.user.username" class="form-control input-dark" placeholder="{{'placeholder.username' | translate}}">
+				</div>
+				<div class="form-group">
+					<input type="password" required data-ng-model="registerCtrl.user.password" class="form-control input-dark" placeholder="{{'placeholder.password' | translate}}">
+				</div>
+				<div class="form-group">
+					<input type="password" required data-ng-model="registerCtrl.user.$$passwordRepeat" class="form-control input-dark" placeholder="{{'placeholder.passwordRepeat' | translate}}">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-2 col-xs-offset-4 col-centered">
-					<input type="submit" id="btn-login" class="btn btn-custom btn-block" data-ng-click="registerCtrl.register()" value="{{'header.register' | translate}}">
-				</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2 col-xs-offset-4 col-centered">
+				<button data-ng-disabled="registrationForm.$invalid" class="btn btn-custom btn-block" data-ng-click="registerCtrl.register()" data-translate="header.register"></button>
 			</div>
-		</form>
-	</div>
-</section>
+		</div>
+	</form>
+</div>
