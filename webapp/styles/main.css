@@ -120,6 +120,11 @@ body {
 	background-image: none;
 	border-color: #283139 !important;
 	border-radius: 0;
+	width: 100%;
+}
+
+.ui-select-match > .btn {
+	color: #333333 !important;
 }
 
 .dropdown-menu {
@@ -132,12 +137,6 @@ body {
 
 .uib-rating-padding {
 	margin-top: 10px;
-}
-
-input, input:focus {
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 .panel-group {
@@ -161,5 +160,8 @@ input, input:focus {
 }
 
 .uib-accordion-text-input {
-	color: #dbd9d9 !important;
+	color: #333333 !important;
+	border: 0;
+	width: 100%;
+	resize: none;
 }

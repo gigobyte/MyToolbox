@@ -14,7 +14,6 @@ angular.module('mytoolboxApp').service('ToolsService', function(Restangular) {
 		}
 
 		service.getTool = function(tool) {
-			console.log(tool);
 			return Restangular.all(REST.TOOL).customGET('', {'tool': tool});
 		}
 

@@ -1,21 +1,24 @@
-angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, $mdMedia, $mdDialog, ToolsService) {
+angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, ToolsService, AccountUsersService) {
 	'use strict';
 
 	var controller = this;
 
 	function initState() {
-		ToolsService.getTool($state.params.id).then(function(res) {
-			controller.tool = res;
-			controller.tool.image = '../../images/tools/' + res.image;
+		AccountUsersService.getLoggedUser().then(function(getLoggedUserRes) {
+			ToolsService.getTool($state.params.id).then(function(getToolRes) {
+				controller.tool = getToolRes;
+				controller.tool.image = '../../images/tools/' + getToolRes.image;
 
-			controller.addedTool = {
-				tool: controller.tool._id
-			};
+				controller.addedTool = {
+					tool: controller.tool._id
+				};
 
-			controller.dummyList = [
-				{name: 'Learned'},
-				{name: 'Want to learn'}
-			]
+				controller.userLists = [];
+
+				_.map(getLoggedUserRes.lists, function(list) {
+						controller.userLists.push(list.name)
+				});
+			});	
 		});
 	}
 

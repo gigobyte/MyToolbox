@@ -72,6 +72,7 @@ app.post('/api/authenticate/register', function(req, res) {
 		email: req.body.email,
 		lists: [
 			{name: 'Learned', entries: []},
+			{name: 'Learning', entries: []},
 			{name: 'Want to learn', entries: []}
 		]
 	});

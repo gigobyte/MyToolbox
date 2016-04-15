@@ -15,7 +15,7 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, Acco
 				AccountUsersService.register(controller.user).then(
 					function(res) {
 						NotificationService.show(res);
-						$state.go('home.login', null, {reload: true});
+						$state.go('home.authenticate.login', null, {reload: true});
 					},
 
 					function(res) {
