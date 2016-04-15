@@ -1,9 +1,7 @@
 body {
 	background-color: #1b2127;
-	font-family: 'Muli', sans-serif;
 	color: #dbd9d9;
 }
-
 
 /* When selecting text */
 ::selection {
@@ -68,8 +66,11 @@ body {
 }
 
 /* Overwrite the default blue links */
-.pink-link, .pink-link:hover{
+.pink-link, .pink-link:hover, .pink-link:active, .pink-link:focus{
 	color: #ba514d;
+	outline: 0;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 /* Overwrite the default material modals*/
@@ -81,8 +82,12 @@ body {
 .image-thumbnail {
 	width: 110%;
 	height: auto;
-	padding-bottom: 5px;
 	transition: 0.4s ease all;
+}
+
+.img-profile {
+	width: 100%;
+	height: auto;
 }
 
 .image-thumbnail:hover {
@@ -164,4 +169,14 @@ body {
 	border: 0;
 	width: 100%;
 	resize: none;
+}
+
+.col-tool-image {
+	padding-right: 0;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+.line-under-username {
+	margin-top: 0;
 }
