@@ -32,7 +32,7 @@
 								<ui-select data-ng-model="toolCtrl.addedTool.list" data-theme="bootstrap">
 									<ui-select-match placeholder="Select a list...">{{$select.selected}}</ui-select-match>
 									<ui-select-choices repeat="list in toolCtrl.userLists | filter: $select.search">
-										<span data-ng-bind-html="list | highlight: $select.search"></span>
+										<span data-ng-bind-html="list.name | highlight: $select.search"></span>
 									</ui-select-choices>
 								</ui-select>
 							</div>

@@ -15,8 +15,8 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 
 				controller.userLists = [];
 
-				_.map(getLoggedUserRes.lists, function(list) {
-					controller.userLists.push(list.name)
+				_.map(getLoggedUserRes.lists, function(list, i) {
+					controller.userLists.push({name: list.name, index: i});
 				});
 			});	
 		});
@@ -24,6 +24,8 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 
 	function attachMethods() {
 		controller.addTool = function() {
+			console.log(controller.addedTool);
+
 			ToolService.addTool(controller.addedTool).then(function(res) {
 				console.log(res);
 				NotificationService.show(res);

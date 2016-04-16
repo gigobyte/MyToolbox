@@ -58,13 +58,13 @@ app.post('/api/authenticate/login', function(req, res) {
 
 app.post('/api/authenticate/register', function(req, res) {
 	if(!req.body) {
-		res.status(400).send(RESPONSES.FIELDS_REQUIRED)
+		return res.status(400).send(RESPONSES.FIELDS_REQUIRED)
 	} else if (req.body.email.indexOf('@') == -1) {
-		res.status(400).send(RESPONSES.INVALID_EMAIL)
+		return res.status(400).send(RESPONSES.INVALID_EMAIL)
 	} else if (req.body.username.length < 5) {
-		req.status(400).send(RESPONSES.SHORT_USERNAME)
+		return res.status(400).send(RESPONSES.SHORT_USERNAME)
 	} else if (req.body.password.length < 6) {
-		req.status(400).send(RESPONSES.SHORT_PASSWORD)
+		return res.status(400).send(RESPONSES.SHORT_PASSWORD)
 	}
 
 	var user = new User({
@@ -72,9 +72,9 @@ app.post('/api/authenticate/register', function(req, res) {
 		password: req.body.password,
 		email: req.body.email,
 		lists: [
-			{name: 'Learned', entries: []},
-			{name: 'Learning', entries: []},
-			{name: 'Want to learn', entries: []}
+			{id: 0, name: 'Learned', entries: []},
+			{id: 1, name: 'Learning', entries: []},
+			{id: 2, name: 'Want to learn', entries: []}
 		]
 	});
 
@@ -133,26 +133,36 @@ app.get('/api/tool', function(req, res) {
 });
 
 app.post('/api/tool/add', function(req, res) {
+	console.log(req.body);
+
 	User.findOne({_id: sess.user}, function(err, found) {
-		found.lists.forEach(function(list) {
-			if(list.name === req.body.list.name) {
-				list.entries.push({
-					tool: mongoose.Types.ObjectId(req.body.tool),
-					rating: req.body.rating,
-					review: req.body.review
-				});
-			}
-		});
+		if (err) {
+			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
+		} else {
+			found.lists.forEach(function(list) {
+				console.log(list);
+				if(list.name === req.body.list.name) {
+					console.log('Pushed');
+					list.entries.push({
+						tool: mongoose.Types.ObjectId(req.body.tool),
+						rating: req.body.rating,
+						review: req.body.review
+					});
+				}
+			});
 
-		found.markModified('lists');
+			found.markModified('lists');
 
-		found.save(function(err) {
-			if (err) {
-				return res.status(409).send(RESPONSES.CANT_ADD_LIST);
-			} else {
-				res.status(200).send(RESPONSES.ADDED_SUCCESS);
-			}
-		});
+			console.log(found);
+
+			found.save(function(err) {
+				if (err) {
+					return res.status(409).send(RESPONSES.CANT_ADD_LIST);
+				} else {
+					res.status(200).send(RESPONSES.ADDED_SUCCESS);
+				}
+			});
+		}
 	});
 });
 
