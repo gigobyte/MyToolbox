@@ -31,7 +31,8 @@ var RESPONSES = {
 	FIELDS_REQUIRED: 'All fields are required',
 	INVALID_EMAIL: 'Email is invalid',
 	SHORT_USERNAME: 'Username should be at least 5 characters long',
-	SHORT_PASSWORD: 'Password should be at least 6 characters long'
+	SHORT_PASSWORD: 'Password should be at least 6 characters long',
+	ADDED_SUCCESS: 'Tool added succesfully!'
 }
 
 app.post('/api/authenticate/login', function(req, res) {
@@ -149,7 +150,7 @@ app.post('/api/tool/add', function(req, res) {
 			if (err) {
 				return res.status(409).send(RESPONSES.CANT_ADD_LIST);
 			} else {
-				res.status(204).send();
+				res.status(200).send(RESPONSES.ADDED_SUCCESS);
 			}
 		});
 	});
