@@ -180,3 +180,7 @@ body {
 .line-under-username {
 	margin-top: 0;
 }
+
+.label-pink {
+	background-color: #ba514d;
+}

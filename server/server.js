@@ -28,11 +28,13 @@ var RESPONSES = {
 	USER_EXISTS: 'User already exists',
 	REGISTER_SUCCESS: 'Registration succesful!',
 	CANT_ADD_LIST: 'Couldn\'t add to list, please try again',
+	CANT_UPDATE_LIST: 'Couldn\'t update entry, please try again',
 	FIELDS_REQUIRED: 'All fields are required',
 	INVALID_EMAIL: 'Email is invalid',
 	SHORT_USERNAME: 'Username should be at least 5 characters long',
 	SHORT_PASSWORD: 'Password should be at least 6 characters long',
-	ADDED_SUCCESS: 'Tool added succesfully!'
+	ADDED_SUCCESS: 'Tool added succesfully!',
+	UPDATED_SUCCESS: 'Tool updated succesfully!'
 }
 
 app.post('/api/authenticate/login', function(req, res) {
@@ -133,16 +135,12 @@ app.get('/api/tool', function(req, res) {
 });
 
 app.post('/api/tool/add', function(req, res) {
-	console.log(req.body);
-
 	User.findOne({_id: sess.user}, function(err, found) {
 		if (err) {
 			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
 		} else {
 			found.lists.forEach(function(list) {
-				console.log(list);
 				if(list.name === req.body.list.name) {
-					console.log('Pushed');
 					list.entries.push({
 						tool: mongoose.Types.ObjectId(req.body.tool),
 						rating: req.body.rating,
@@ -152,9 +150,6 @@ app.post('/api/tool/add', function(req, res) {
 			});
 
 			found.markModified('lists');
-
-			console.log(found);
-
 			found.save(function(err) {
 				if (err) {
 					return res.status(409).send(RESPONSES.CANT_ADD_LIST);
@@ -164,6 +159,45 @@ app.post('/api/tool/add', function(req, res) {
 			});
 		}
 	});
+});
+
+app.post('/api/tool/update', function(req, res) {
+	var reqTool = mongoose.Types.ObjectId(req.body.tool);
+
+	User.findOne({_id: sess.user}, function(err, found) {
+		if (err) {
+			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
+		} else {
+			found.lists.forEach(function(list) {
+				list.entries.forEach(function(entry, index) {
+					if(entry.tool.equals(reqTool)) {
+						entry.rating = req.body.rating;
+						entry.review = req.body.review;
+
+						if(req.body.list.name !== list.name) {
+							console.log(req.body);
+							var entryCopy = {
+								tool: entry.tool,
+								rating: entry.rating,
+								review: entry.review
+							}
+							list.entries.splice(index, 1);
+							found.lists[req.body.list.index].entries.push(entryCopy);
+						}
+					}
+				});
+			});
+
+			found.markModified('lists');
+			found.save(function(err) {
+				if (err) {
+					return res.status(409).send(RESPONSES.CANT_UPDATE_LIST);
+				} else {
+					res.status(200).send(RESPONSES.UPDATED_SUCCESS);
+				}
+			});
+		}
+	});	
 });
 
 app.listen(3000);

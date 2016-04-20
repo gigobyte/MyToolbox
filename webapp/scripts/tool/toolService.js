@@ -2,7 +2,8 @@ angular.module('mytoolboxApp').service('ToolService', function(Restangular) {
 	'use strict';
 	var REST = {
 		TOOL: 'tool',
-		ADD: 'add'
+		ADD: 'add',
+		UPDATE: 'update'
 	};
 
 	var service = this;
@@ -13,8 +14,13 @@ angular.module('mytoolboxApp').service('ToolService', function(Restangular) {
 		}
 
 		service.addTool = function(tool) {
+			console.log(tool);
 			return Restangular.all(REST.TOOL).all(REST.ADD).post(tool);
 		}
+
+		service.updateTool = function(tool) {
+			return Restangular.all(REST.TOOL).all(REST.UPDATE).post(tool);
+		}		
 	}
 
 	attachMethods();

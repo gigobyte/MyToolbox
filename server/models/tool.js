@@ -5,7 +5,8 @@ var ToolSchema = new mongoose.Schema({
 	indexName: {type: String, required: true, index: {unique: true}},
 	description: {type: String},
 	link: {type: String},
-	image: {type: String}
+	image: {type: String},
+	language: {type: String}
 });
 
 module.exports = mongoose.model('Tool', ToolSchema)
