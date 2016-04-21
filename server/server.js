@@ -116,7 +116,13 @@ app.get('/api/tools', function(req, res) {
 });
 
 app.get('/api/tool', function(req, res) {
-	Tool.findOne({indexName: req.query.tool}, function(err, doc) {
+	var id;
+
+	if(mongoose.Types.ObjectId.isValid(req.query.tool)) {
+		id = new mongoose.Types.ObjectId(req.query.tool);
+	}
+
+	Tool.findOne({$or: [{indexName: req.query.tool}, {_id: id}]}, function(err, doc) {
 		if (doc) {
 			res.send(doc);
 		} else {

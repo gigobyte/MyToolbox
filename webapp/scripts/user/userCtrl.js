@@ -6,11 +6,11 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AccountUsersServ
 	function initState() {
 		AccountUsersService.getLoggedUser().then(function(getLoggedUserRes) {
 			UserService.getUser($state.params.username).then(function(getUserRes) {
+				controller.user = getUserRes;
+
 				if(getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
 					controller.sessionUser = true;
 				}
-
-				controller.user = getUserRes;
 
 				$.each(controller.user.lists, function() {
 					_.map(this.entries, function(e) {
@@ -23,7 +23,7 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AccountUsersServ
 					});
 				});
 
-				console.log(controller.user);
+				console.log(controller.user.lists);
 			});
 		});
 	}

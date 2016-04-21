@@ -14,7 +14,6 @@ angular.module('mytoolboxApp').service('ToolService', function(Restangular) {
 		}
 
 		service.addTool = function(tool) {
-			console.log(tool);
 			return Restangular.all(REST.TOOL).all(REST.ADD).post(tool);
 		}
 
