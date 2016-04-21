@@ -3,6 +3,7 @@ angular.module('mytoolboxApp').config(function($translateProvider) {
 	$translateProvider.translations('en', {
 		'button.addToList': 'Add to list',
 		'button.editEntry': 'Edit entry',
+		'button.goToSite': 'Go to site',
 
 		'modal.addToList.button.add': 'Add',
 		'modal.addToList.label.addTo': 'Add to',
