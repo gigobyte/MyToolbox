@@ -42,12 +42,12 @@ UserSchema.path('username').validate(function(value) {
 }, 'Username should be between 5 and 30 characters long');
 
 UserSchema.path('password').validate(function(value) {
-	return value && /^[ A-Za-z0-9_@.#&+-]*$/.test(value);
-}, 'Password should be between 6 and 30 characters long');
+	return value && /^[A-Za-z0-9_@.#&+-/$]*$/.test(value);
+}, 'Invalid password');
 
 UserSchema.path('password').validate(function(value) {
-	return value && value.length > 5 && value.length < 30;
-}, 'Password should be between 6 and 30 characters long');
+	return value && value.length > 5;
+}, 'Password should be at least 6 characters long');
 
 UserSchema.path('email').validate(function(value) {
 	return value && value.indexOf('@') >= 0;
