@@ -33,4 +33,24 @@ UserSchema.pre('save', function(next) {
 	}
 });
 
+UserSchema.path('username').validate(function(value) {
+	return value && /^[a-zA-Z0-9_]*$/.test(value);
+}, 'Invalid username');
+
+UserSchema.path('username').validate(function(value) {
+	return value && value.length > 4 && value.length < 30;
+}, 'Username should be between 5 and 30 characters long');
+
+UserSchema.path('password').validate(function(value) {
+	return value && /^[ A-Za-z0-9_@.#&+-]*$/.test(value);
+}, 'Password should be between 6 and 30 characters long');
+
+UserSchema.path('password').validate(function(value) {
+	return value && value.length > 5 && value.length < 30;
+}, 'Password should be between 6 and 30 characters long');
+
+UserSchema.path('email').validate(function(value) {
+	return value && value.indexOf('@') >= 0;
+}, 'Invalid email');
+
 module.exports = mongoose.model('User', UserSchema)

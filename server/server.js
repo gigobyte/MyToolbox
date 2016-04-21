@@ -20,7 +20,7 @@ var db = mongoose.connect('mongodb://localhost/mytoolboxdb');
 app.use(express.static(path.join(__dirname, '../webapp')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(session({secret: ENV.COOKIE_SECRET}));
+app.use(session({secret: ENV.COOKIE_SECRET, resave: false, saveUninitialized: true}));
 
 var RESPONSES = {
 	INTERNAL_SERVER_ERR: 'Internal server error',
@@ -29,10 +29,6 @@ var RESPONSES = {
 	REGISTER_SUCCESS: 'Registration succesful!',
 	CANT_ADD_LIST: 'Couldn\'t add to list, please try again',
 	CANT_UPDATE_LIST: 'Couldn\'t update entry, please try again',
-	FIELDS_REQUIRED: 'All fields are required',
-	INVALID_EMAIL: 'Email is invalid',
-	SHORT_USERNAME: 'Username should be at least 5 characters long',
-	SHORT_PASSWORD: 'Password should be at least 6 characters long',
 	ADDED_SUCCESS: 'Tool added succesfully!',
 	UPDATED_SUCCESS: 'Tool updated succesfully!'
 }
@@ -59,16 +55,6 @@ app.post('/api/authenticate/login', function(req, res) {
 });
 
 app.post('/api/authenticate/register', function(req, res) {
-	if(!req.body) {
-		return res.status(400).send(RESPONSES.FIELDS_REQUIRED)
-	} else if (req.body.email.indexOf('@') == -1) {
-		return res.status(400).send(RESPONSES.INVALID_EMAIL)
-	} else if (req.body.username.length < 5) {
-		return res.status(400).send(RESPONSES.SHORT_USERNAME)
-	} else if (req.body.password.length < 6) {
-		return res.status(400).send(RESPONSES.SHORT_PASSWORD)
-	}
-
 	var user = new User({
 		username: req.body.username,
 		password: req.body.password,
@@ -82,7 +68,12 @@ app.post('/api/authenticate/register', function(req, res) {
 
 	user.save(function(err) {
 		if (err) {
-			return res.status(409).send(RESPONSES.USER_EXISTS);
+			if (err.name === 'ValidationError') {
+				var firstKey = Object.keys(err.errors)[0];
+				return res.status(409).send(err.errors[firstKey].message);
+			} else if (err.name === 'MongoError') {
+				return res.status(409).send(RESPONSES.USER_EXISTS);
+			}
 		} else {
 			res.status(200).send(RESPONSES.REGISTER_SUCCESS);
 		}
@@ -91,7 +82,7 @@ app.post('/api/authenticate/register', function(req, res) {
 
 app.get('/api/authenticate/logout', function(req, res) {
 	req.session.destroy(function(err) {
-		if(err) {
+		if (err) {
 			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
 		} else {
 			delete sess.user;
@@ -116,7 +107,7 @@ app.get('/api/authenticate/currentuser', function(req, res) {
 
 app.get('/api/tools', function(req, res) {
 	Tool.find({}, function(err, tools) {
-		if(err) {
+		if (err) {
 			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
 		} else {
 			res.send(tools);
@@ -170,11 +161,11 @@ app.post('/api/tool/update', function(req, res) {
 		} else {
 			found.lists.forEach(function(list) {
 				list.entries.forEach(function(entry, index) {
-					if(entry.tool.equals(reqTool)) {
+					if (entry.tool.equals(reqTool)) {
 						entry.rating = req.body.rating;
 						entry.review = req.body.review;
 
-						if(req.body.list.name !== list.name) {
+						if (req.body.list.name !== list.name) {
 							console.log(req.body);
 							var entryCopy = {
 								tool: entry.tool,
