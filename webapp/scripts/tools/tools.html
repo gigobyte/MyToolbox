@@ -3,7 +3,7 @@
 		<h1 data-translate="header.newest"></h1>
 		<div data-ng-repeat="tool in toolsCtrl.tools">
 			<div class="col-md-3 col-sm-4 col-xs-6 col-tool-image">
-				<a data-ui-sref="home.tool({id: tool._id})"><img data-ng-src="{{tool.image}}" class="image-thumbnail img-responsive"></img></a>
+				<a data-ui-sref="home.tool({name: tool.indexName})"><img data-ng-src="{{tool.image}}" class="image-thumbnail img-responsive"></img></a>
 			</div>
 		</div>
 	</div>

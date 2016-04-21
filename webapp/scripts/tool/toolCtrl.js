@@ -4,7 +4,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 	var controller = this;
 
 	function initState() {
-		var toolId = $state.params.id;
+		var toolId = $state.params.name;
 
 		AccountUsersService.getLoggedUser().then(function(getLoggedUserRes) {
 			ToolService.getTool(toolId).then(function(getToolRes) {
