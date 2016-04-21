@@ -14,6 +14,10 @@ body {
     color: #14181c;
 }
 
+.se-loading {
+   background: url('https://i1.wp.com/cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif') center center no-repeat;
+}
+
 /* Navigation bar */
 .navbar-darkblue {
 	background-image: none;
