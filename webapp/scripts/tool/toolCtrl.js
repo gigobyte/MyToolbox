@@ -67,7 +67,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 				},
 
 				function(res) {
-					showResponse(res, '#addToListModal');
+					showResponse(res.data, '#addToListModal');
 				}
 			);
 		}
@@ -79,7 +79,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 				},
 
 				function(res) {
-					showResponse(res, '#editEntryModal');
+					showResponse(res.data, '#editEntryModal');
 				}
 			)
 		}
