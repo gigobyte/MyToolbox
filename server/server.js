@@ -191,5 +191,15 @@ app.post('/api/tool/update', function(req, res) {
 	});	
 });
 
+app.get('/api/user', function(req, res) {
+	User.findOne({username: req.query.username}, function(err, doc) {
+		if (doc) {
+			res.send(doc);
+		} else {
+			return res.status(404).send(RESPONSES.INTERNAL_SERVER_ERR);
+		}
+	});
+});
+
 app.listen(3000);
 console.log('Server up and running on port 3000');

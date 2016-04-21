@@ -2,12 +2,12 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 	'use strict';
 
 	$stateProvider
-	.state('home.profile', {
-		url: '/profile',
+	.state('home.user', {
+		url: '/user/:username',
 		views: {
 			'content@home': {
-				templateUrl: 'scripts/profile/profile.html',
-				controller: 'ProfileCtrl as profileCtrl'
+				templateUrl: 'scripts/user/user.html',
+				controller: 'UserCtrl as userCtrl'
 			}
 		}
 	})

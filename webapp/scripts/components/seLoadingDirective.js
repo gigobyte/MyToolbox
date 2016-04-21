@@ -22,7 +22,6 @@ angular.module('mytoolboxApp').directive('seLoading', function($parse, $timeout)
 				}, TIMEOUT);
 			}
 			scope.$watch(attrs.seLoading, function(value) {
-				console.log(value);
 				if (value) {
 					hideWaiter();
 				} else {
