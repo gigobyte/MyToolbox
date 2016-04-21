@@ -44,7 +44,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 					if(controller.alreadyAddedTool) {
 						controller.updatedTool = {
 							tool: controller.alreadyAddedTool.entry.tool,
-							list: controller.alreadyAddedTool.list,
+							list: controller.userLists[controller.alreadyAddedTool.list],
 							rating: controller.alreadyAddedTool.entry.rating,
 							review: controller.alreadyAddedTool.entry.review
 						};

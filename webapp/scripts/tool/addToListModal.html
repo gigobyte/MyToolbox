@@ -10,7 +10,7 @@
 						</div>
 						<div class="col-sm-6">
 							<ui-select data-ng-model="toolCtrl.addedTool.list" data-theme="bootstrap">
-								<ui-select-match placeholder="Select a list...">{{$select.selected}}</ui-select-match>
+								<ui-select-match placeholder="Select a list...">{{$select.selected.name}}</ui-select-match>
 								<ui-select-choices repeat="list in toolCtrl.userLists | filter: $select.search">
 									<span data-ng-bind-html="list.name | highlight: $select.search"></span>
 								</ui-select-choices>
@@ -18,27 +18,29 @@
 						</div>
 					</div>
 				</div>
-				<div class="row form-group">
-					<div class="col-sm-2 col-sm-offset-2 vert-align">
-						<label class="col-sm-2 control-label custom-form-align" data-translate="modal.addToList.label.rating"></label>
+				<div data-ng-hide="toolCtrl.addedTool.list.index > 0 && toolCtrl.addedTool.list.index < 3">
+					<div class="row form-group">
+						<div class="col-sm-2 col-sm-offset-2 vert-align">
+							<label class="col-sm-2 control-label custom-form-align" data-translate="modal.addToList.label.rating"></label>
+						</div>
+						<div class="col-sm-6 vert-align">
+							<uib-rating class="uib-rating-padding" ng-model="toolCtrl.addedTool.rating" max="5" read-only="false" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+						</div>
 					</div>
-					<div class="col-sm-6 vert-align">
-						<uib-rating class="uib-rating-padding" ng-model="toolCtrl.addedTool.rating" max="5" read-only="false" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
-					</div>
-				</div>
-				<div class="row form-group">
-					<div class="col-sm-2 col-sm-offset-2">
-						<label class="col-sm-2 control-label custom-form-align" data-translate="modal.addToList.label.review"></label>
-					</div>
-					<div class="col-sm-6">
-						<uib-accordion>
-							<uib-accordion-group is-open="status.open">
-								<uib-accordion-heading>
-									{{'modal.addToList.accordion.label' | translate}}
-								</uib-accordion-heading>
-								<textarea class="uib-accordion-text-input" data-ng-model="toolCtrl.addedTool.review" placeholder="Review goes here..."></textarea >
-								</uib-accordion-group>
-						</uib-accordion>
+					<div class="row form-group">
+						<div class="col-sm-2 col-sm-offset-2">
+							<label class="col-sm-2 control-label custom-form-align" data-translate="modal.addToList.label.review"></label>
+						</div>
+						<div class="col-sm-6">
+							<uib-accordion>
+								<uib-accordion-group is-open="status.open">
+									<uib-accordion-heading>
+										{{'modal.addToList.accordion.label' | translate}}
+									</uib-accordion-heading>
+									<textarea class="uib-accordion-text-input" data-ng-model="toolCtrl.addedTool.review" placeholder="Review goes here..."></textarea >
+									</uib-accordion-group>
+							</uib-accordion>
+						</div>
 					</div>
 				</div>
 				<div class="row form-group">
