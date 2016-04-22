@@ -138,5 +138,59 @@ module.exports = {
 			language: 'Java',
 			image: 'jsf.jpg'
 		});
+		
+		Tool.create({
+			name: 'CakePHP',
+			indexName: 'cakephp',
+			description: 'CakePHP is a free, open-source, rapid development framework for PHP. It’s a foundational structure for programmers to create web applications. It\'s primary goal is to enable you to work in a structured and rapid manner–without loss of flexibility.',
+			link: 'http://cakephp.org/',
+			language: 'PHP',
+			image: 'http://cakephp.org/img/ipad-wallpaper/CakePHP-1.2-iPad01-light.png'
+		});
+		
+		Tool.create({
+			name: 'Zend',
+			indexName: 'zend',
+			description: 'Zend Framework 2 is an open source framework for developing web applications and services using PHP 5.3+. Zend Framework 2 uses 100% object-oriented code and utilises most of the new features of PHP 5.3, namely namespaces, late static binding, lambda functions and closures.',
+			link: 'http://framework.zend.com/',
+			language: 'PHP',
+			image: 'http://framework.zend.com/images/logos/ZendFramework-logo.png'
+		});
+		
+		Tool.create({
+			name: 'Play',
+			indexName: 'play',
+			description: 'Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.',
+			link: 'https://www.playframework.com/',
+			language: 'Scala',
+			image: 'https://www.playframework.com/assets/images/logos/play_full_color.png'
+		});
+		
+		Tool.create({
+			name: 'Sails.js',
+			indexName: 'sailsjs',
+			description: 'Sails makes it easy to build custom, enterprise-grade Node.js apps. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.',
+			link: 'http://sailsjs.org/',
+			language: 'JavaScript',
+			image: 'http://sailsjs.org/images/logos/sails-logo_ltBg_ltBlue.png'
+		});
+		
+		Tool.create({
+			name: 'Sinatra',
+			indexName: 'sinatra',
+			description: 'Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort',
+			link: 'http://www.sinatrarb.com/',
+			language: 'Ruby',
+			image: 'http://devbootcamp.com/intro-to-ruby/img/sinatra-logo.jpg'
+		});
+		
+		Tool.create({
+			name: 'Tornado',
+			indexName: 'tornado',
+			description: 'Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed. By using non-blocking network I/O, Tornado can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user.',
+			link: 'http://www.tornadoweb.org/en/stable/',
+			language: 'Python',
+			image: 'http://www.tornadoweb.org/en/stable/_images/tornado.png'
+		});		
 	}
 }
