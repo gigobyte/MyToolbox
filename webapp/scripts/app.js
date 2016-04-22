@@ -2,7 +2,6 @@ angular.module('mytoolboxApp', ['ui.router', 'restangular', 'pascalprecht.transl
 	function configureRouting() {
 		$urlRouterProvider.when('', '/');
 		$urlRouterProvider.otherwise(function() {
-			// $injector.get("$log").error("viblastCustomerPortalApp: unknown location: ", $location);
 			return '/404';
 		});
 
