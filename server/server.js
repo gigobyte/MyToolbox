@@ -200,7 +200,18 @@ app.post('/api/tool/update', function(req, res) {
 app.get('/api/user', function(req, res) {
 	User.findOne({username: req.query.username}, function(err, doc) {
 		if (doc) {
-			res.send(doc);
+			if(sess && doc._id === sess.user) {
+				res.send(doc);
+			} else {
+				var limitedUser = {
+					_id: doc._id,
+					username: doc.username,
+					email: doc.email,
+					lists: doc.lists
+				}
+
+				res.send(limitedUser);
+			}
 		} else {
 			return res.status(404).send(RESPONSES.INTERNAL_SERVER_ERR);
 		}

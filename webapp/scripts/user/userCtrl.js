@@ -23,7 +23,7 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 					});
 				});
 
-				if(!controller.user.firstname) {
+				if(controller.sessionUser && !controller.user.firstname) {
 					$('#fillInfoModal').modal('show');
 				}
 			});
@@ -31,6 +31,11 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 	}
 
 	function attachMethods() {
+		controller.goToSettings = function() {
+			//This exists because I am dumb and forgot to use the angular bootstrap
+			$('#fillInfoModal').modal('hide');
+			$state.go('home.user.settings', null, {reload: true});
+		}
 	}
 
 	initState();
