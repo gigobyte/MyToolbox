@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('UserSettingsCtrl', function (UserSettingsService, AuthenticationService, $state) {
+angular.module('mytoolboxApp').controller('UserSettingsCtrl', function (UserSettingsService, AuthenticationService, $state, NotificationService) {
 	'use strict';
 
 	var controller = this;
@@ -13,6 +13,12 @@ angular.module('mytoolboxApp').controller('UserSettingsCtrl', function (UserSett
 	}
 
 	function attachMethods() {
+		controller.updateProfile = function() {
+			UserSettingsService.updateProfile(controller.user).then(function(res) {
+				NotificationService.show(res);
+				$state.go('home.user', null, {reload: true});
+			});
+		}
 	}
 
 	initState();

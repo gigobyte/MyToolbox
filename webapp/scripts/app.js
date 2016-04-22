@@ -21,3 +21,7 @@ angular.module('mytoolboxApp', ['ui.router', 'restangular', 'pascalprecht.transl
 	configureRouting();
 	configureSessionCookies();
 });
+
+angular.module('mytoolboxApp').value('GLOBVARS', {
+	has_seen_profile_warning: false
+});

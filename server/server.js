@@ -30,7 +30,9 @@ var RESPONSES = {
 	CANT_ADD_LIST: 'Couldn\'t add to list, please try again',
 	CANT_UPDATE_LIST: 'Couldn\'t update entry, please try again',
 	ADDED_SUCCESS: 'Tool added succesfully!',
-	UPDATED_SUCCESS: 'Tool updated succesfully!'
+	UPDATED_SUCCESS: 'Tool updated succesfully!',
+	ACCESS_DENIED: 'Access denied',
+	UPDATE_USER_SUCCESS: 'Changes saved succesfully!'
 }
 
 app.post('/api/authenticate/login', function(req, res) {
@@ -200,7 +202,7 @@ app.post('/api/tool/update', function(req, res) {
 app.get('/api/user', function(req, res) {
 	User.findOne({username: req.query.username}, function(err, doc) {
 		if (doc) {
-			if(sess && doc._id === sess.user) {
+			if(sess && doc._id.equals(sess.user)) {
 				res.send(doc);
 			} else {
 				var limitedUser = {
@@ -211,6 +213,31 @@ app.get('/api/user', function(req, res) {
 				}
 
 				res.send(limitedUser);
+			}
+		} else {
+			return res.status(404).send(RESPONSES.INTERNAL_SERVER_ERR);
+		}
+	});
+});
+
+app.post('/api/user', function(req, res) {
+	User.findOne({username: req.body.username}, function(err, doc) {
+		if (doc) {
+			if(sess && doc._id.equals(sess.user)) {
+				doc.firstname = req.body.firstname;
+				doc.lastname = req.body.lastname;
+				doc.githubLink = req.body.githubLink;
+				doc.linkedInLink = req.body.linkedInLink;
+
+				doc.save(function(err) {
+					if (err) {
+						return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
+					} else {
+						res.status(200).send(RESPONSES.UPDATE_USER_SUCCESS);
+					}
+				});
+			} else {
+				return res.status(409).send(RESPONSES.ACCESS_DENIED);
 			}
 		} else {
 			return res.status(404).send(RESPONSES.INTERNAL_SERVER_ERR);

@@ -1,29 +1,32 @@
 <div class="container text-center">
-	<h1 class="text-center">Profile Settings</h1><br/>
+	<h1 class="text-center">Edit profile</h1><br/>
 	<form class="form-horizontal" role="form">
 		<div class="form-group">
 			<label for="inputEmail3" class="col-sm-2 col-sm-offset-2 control-label">First name</label>
 			<div class="col-sm-5">
-				<input type="email" data-ng-model="userSettingsCtrl.user.firstname" class="form-control input-dark">
+				<input type="username" data-ng-model="userSettingsCtrl.user.firstname" class="form-control input-dark">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputEmail3" class="col-sm-2 col-sm-offset-2 control-label">Last name</label>
 			<div class="col-sm-5">
-				<input type="email" data-ng-model="userSettingsCtrl.user.lastname" class="form-control input-dark">
+				<input type="username" data-ng-model="userSettingsCtrl.user.lastname" class="form-control input-dark">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputEmail3" class="col-sm-2 col-sm-offset-2 control-label"><span class="fa fa-2x fa-github"></span></label>
 			<div class="col-sm-5">
-				 <input type="email" data-ng-model="userSettingsCtrl.user.githubLink" class="form-control input-dark" placeholder="https://github.com/XXX">
+				 <input type="username" data-ng-model="userSettingsCtrl.user.githubLink" class="form-control input-dark" placeholder="https://github.com/XXX">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputEmail3" class="col-sm-2 col-sm-offset-2 control-label"><span class="fa fa-2x fa-linkedin"></span></label>
 			<div class="col-sm-5">
-				 <input type="email" data-ng-model="userSettingsCtrl.user.linkedInLink" class="form-control input-dark" placeholder="https://linkedin.com/in/XXX">
+				 <input type="username" data-ng-model="userSettingsCtrl.user.linkedInLink" class="form-control input-dark" placeholder="https://linkedin.com/in/XXX">
 			</div>
-		</div>		
+		</div>
+		<div class="col-xs-2 col-xs-offset-4 col-centered">
+				<button class="btn btn-custom btn-block" data-ng-click="userSettingsCtrl.updateProfile()" data-translate="">Save</button>
+		</div>
 	</form>
 </div>
