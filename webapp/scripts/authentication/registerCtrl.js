@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, AccountUsersService, NotificationService) {
+angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, AuthenticationService, NotificationService) {
 	'use strict';
 
 	var controller = this;
@@ -12,7 +12,7 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, Acco
 			if(controller.user.password !== controller.user.$$passwordRepeat) {
 				NotificationService.show('Passwords do not match');
 			} else {
-				AccountUsersService.register(controller.user).then(
+				AuthenticationService.register(controller.user).then(
 					function(res) {
 						NotificationService.show(res);
 						$state.go('home.authenticate.login', null, {reload: true});

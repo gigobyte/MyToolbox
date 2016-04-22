@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').service('AccountUsersService', function(Restangular) {
+angular.module('mytoolboxApp').service('AuthenticationService', function(Restangular) {
 	'use strict';
 	var REST = {
 		AUTHENTICATE: 'authenticate',

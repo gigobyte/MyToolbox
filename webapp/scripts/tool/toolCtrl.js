@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, ToolService, AccountUsersService, NotificationService) {
+angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, ToolService, AuthenticationService, NotificationService) {
 	'use strict';
 
 	var controller = this;
@@ -6,7 +6,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 	function initState() {
 		var toolId = $state.params.name;
 
-		AccountUsersService.getLoggedUser().then(function(getLoggedUserRes) {
+		AuthenticationService.getLoggedUser().then(function(getLoggedUserRes) {
 			ToolService.getTool(toolId).then(function(getToolRes) {
 				function isToolAdded(getLoggedUserRes) {
 					var added;

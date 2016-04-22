@@ -1,10 +1,10 @@
-angular.module('mytoolboxApp').controller('UserCtrl', function (AccountUsersService, ToolService, UserService, $state) {
+angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationService, ToolService, UserService, $state) {
 	'use strict';
 
 	var controller = this;
 
 	function initState() {
-		AccountUsersService.getLoggedUser().then(function(getLoggedUserRes) {
+		AuthenticationService.getLoggedUser().then(function(getLoggedUserRes) {
 			UserService.getUser($state.params.username).then(function(getUserRes) {
 				controller.user = getUserRes;
 
@@ -23,7 +23,9 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AccountUsersServ
 					});
 				});
 
-				console.log(controller.user.lists);
+				if(!controller.user.firstname) {
+					$('#fillInfoModal').modal('show');
+				}
 			});
 		});
 	}

@@ -1,4 +1,4 @@
-angular.module('mytoolboxApp').controller('HomeCtrl', function (AccountUsersService) {
+angular.module('mytoolboxApp').controller('HomeCtrl', function (AuthenticationService) {
 	'use strict';
 
 	var controller = this;
