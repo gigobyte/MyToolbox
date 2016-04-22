@@ -11,4 +11,13 @@ angular.module('mytoolboxApp').config(function($stateProvider) {
 			}
 		}
 	})
+	.state('home.user.settings', {
+		url: '/settings',
+		views: {
+			'content@home': {
+				templateUrl: 'scripts/user/settings/settings.html',
+				controller: 'UserSettingsCtrl as userSettingsCtrl'
+			}
+		}
+	});
 });
