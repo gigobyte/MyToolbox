@@ -8,7 +8,7 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 			UserService.getUser($state.params.username).then(function(getUserRes) {
 				controller.user = getUserRes;
 
-				if(getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
+				if (getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
 					controller.sessionUser = true;
 				}
 
@@ -23,7 +23,7 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 					});
 				});
 
-				if(controller.sessionUser && !controller.user.firstname) {
+				if (controller.sessionUser && !controller.user.firstname) {
 					$('#fillInfoModal').modal('show');
 				}
 			});

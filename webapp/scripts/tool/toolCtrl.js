@@ -28,7 +28,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 				controller.tool.image = '../../images/tools/' + getToolRes.image;
 				controller.loggedUser = getLoggedUserRes;
 
-				if(controller.loggedUser) {
+				if (controller.loggedUser) {
 					controller.userLists = [];
 
 					controller.addedTool = {
@@ -41,7 +41,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 
 					controller.alreadyAddedTool = isToolAdded(controller.loggedUser);
 					
-					if(controller.alreadyAddedTool) {
+					if (controller.alreadyAddedTool) {
 						controller.updatedTool = {
 							tool: controller.alreadyAddedTool.entry.tool,
 							list: controller.userLists[controller.alreadyAddedTool.list],

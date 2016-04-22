@@ -9,7 +9,7 @@ angular.module('mytoolboxApp').controller('RegisterCtrl', function ($state, Auth
 
 	function attachMethods() {
 		controller.register = function() {
-			if(controller.user.password !== controller.user.$$passwordRepeat) {
+			if (controller.user.password !== controller.user.$$passwordRepeat) {
 				NotificationService.show('Passwords do not match');
 			} else {
 				AuthenticationService.register(controller.user).then(
