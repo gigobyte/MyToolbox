@@ -58,6 +58,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 		function showResponse(res, modalToHide) {
 			NotificationService.show(res);
 			$(modalToHide).modal('hide');
+			$state.go('.', null, {reload: true});
 		}
 
 		controller.addTool = function() {
