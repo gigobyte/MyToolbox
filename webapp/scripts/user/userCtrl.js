@@ -22,28 +22,34 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 		}
 
 		AuthenticationService.getLoggedUser().then(function(getLoggedUserRes) {
-			UserService.getUser($state.params.username).then(function(getUserRes) {
-				controller.user = getUserRes;
+			UserService.getUser($state.params.username).then(
+				function(getUserRes) {
+					controller.user = getUserRes;
 
-				if (getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
-					controller.sessionUser = true;
+					if (getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
+						controller.sessionUser = true;
 
-					if(!GLOBVARS.has_seen_profile_warning) {
-						triggerNotEnoughInfoModal(controller.user);
+						if(!GLOBVARS.has_seen_profile_warning) {
+							triggerNotEnoughInfoModal(controller.user);
+						}
 					}
-				}
 
-				$.each(controller.user.lists, function() {
-					_.map(this.entries, function(e) {
-						ToolService.getTool(e.tool).then(function(res) {
-							e.tool = res;
-							e.tool.image = '../../images/tools/' + e.tool.image;
+					$.each(controller.user.lists, function() {
+						_.map(this.entries, function(e) {
+							ToolService.getTool(e.tool).then(function(res) {
+								e.tool = res;
+								e.tool.image = '../../images/tools/' + e.tool.image;
 
-							return e;
-						})
+								return e;
+							})
+						});
 					});
-				});
-			});
+				},
+
+				function() {
+					$state.go('home.first', null, {reload: true});
+				}
+			);
 		});
 	}
 
@@ -57,7 +63,7 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 		controller.goToTools = function() {
 			//This exists because I am dumb and forgot to use the angular bootstrap
 			$('#fillInfoModal').modal('hide');
-			$state.go('home.tools', null, {reload: true});			
+			$state.go('home.tools', null, {reload: true});
 		}
 	}
 
