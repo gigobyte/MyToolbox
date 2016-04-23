@@ -134,19 +134,34 @@ app.get('/api/tool', function(req, res) {
 });
 
 app.post('/api/tool/add', function(req, res) {
+	var toolId = mongoose.Types.ObjectId(req.body.tool);
+
 	User.findOne({_id: sess.user}, function(err, found) {
 		if (err) {
 			return res.status(500).send(RESPONSES.INTERNAL_SERVER_ERR);
 		} else {
+			var alreadyExists = false;
+
 			found.lists.forEach(function(list) {
 				if(list.name === req.body.list.name) {
+
+					list.entries.forEach(function(entry) {
+						if (entry.tool.equals(toolId)) {
+							alreadyExists = true;
+						}
+					})
+
 					list.entries.push({
-						tool: mongoose.Types.ObjectId(req.body.tool),
+						tool: toolId,
 						rating: req.body.rating,
 						review: req.body.review
 					});
 				}
 			});
+
+			if (alreadyExists) {
+				return res.status(409).send(RESPONSES.CANT_ADD_LIST);
+			}
 
 			found.markModified('lists');
 			found.save(function(err) {

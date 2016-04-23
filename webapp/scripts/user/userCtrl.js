@@ -27,6 +27,10 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 
 				if (getLoggedUserRes && getLoggedUserRes._id === getUserRes._id) {
 					controller.sessionUser = true;
+
+					if(!GLOBVARS.has_seen_profile_warning) {
+						triggerNotEnoughInfoModal(controller.user);
+					}
 				}
 
 				$.each(controller.user.lists, function() {
@@ -39,10 +43,6 @@ angular.module('mytoolboxApp').controller('UserCtrl', function (AuthenticationSe
 						})
 					});
 				});
-
-				if(!GLOBVARS.has_seen_profile_warning) {
-					triggerNotEnoughInfoModal(controller.user);
-				}
 			});
 		});
 	}

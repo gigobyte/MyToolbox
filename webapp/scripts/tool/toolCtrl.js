@@ -14,7 +14,7 @@ angular.module('mytoolboxApp').controller('ToolCtrl', function ($state, $scope, 
 					$.each(getLoggedUserRes.lists, function() {
 						var list = this;
 						$.each(list.entries, function() {
-							if (this.tool === toolId) {
+							if (this.tool === getToolRes._id) {
 								added = {};
 								added.entry = this;
 								added.list = list.id;
