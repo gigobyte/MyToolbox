@@ -1,12 +1,22 @@
-angular.module('mytoolboxApp').controller('HeaderCtrl', function ($state, AuthenticationService) {
+angular.module('mytoolboxApp').controller('HeaderCtrl', function ($state, $scope, AuthenticationService, ToolsService) {
 	'use strict';
 
 	var controller = this;
 
 	function initState() {
-		AuthenticationService.getLoggedUser().then(function(res) {
-			controller.user = res;
-		});		
+		AuthenticationService.getLoggedUser().then(function(getLoggedUserRes) {
+			ToolsService.getTools().then(function(getToolsRes) {
+				controller.tools = getToolsRes;
+				controller.user = getLoggedUserRes;
+			});
+		});
+
+		$scope.$watch('headerCtrl.selectedTool', function(value) {
+			if(value) {
+				$state.go('home.tool', {name: value.indexName});
+				controller.selectedTool = null;
+			}
+		});
 	}
 
 	function attachMethods() {

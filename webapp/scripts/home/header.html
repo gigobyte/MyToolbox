@@ -8,10 +8,15 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" data-ui-sref="home.first"><img src="images/logo.png"></img></a>
-			
+
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
-					<input type="text" class="form-control input-dark" placeholder="Search for a tool"></input>
+					<ui-select class="input-dark" data-ng-model="headerCtrl.selectedTool" data-theme="bootstrap">
+						<ui-select-match placeholder="Search for a tool">{{$select.selected.name}}</ui-select-match>
+						<ui-select-choices repeat="list in headerCtrl.tools | filter: $select.search">
+							<span data-ng-bind-html="list.name | highlight: $select.search"></span>
+						</ui-select-choices>
+					</ui-select>
 				</div>
 			</form>
 		</div>
